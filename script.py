@@ -5,7 +5,7 @@ from decouple import config
 
 
 # GLOBAL VARIABLES
-HOUR = 1
+HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
 client = MongoClient(config("MONGO_URI"))
