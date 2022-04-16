@@ -8,9 +8,12 @@ import sys
 HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
-client = MongoClient(os.environ["MONGO_URI"])
-db = client["myDatabase"]
-collection = db["live-data"]
+try:
+    client = MongoClient(os.environ["MONGO_URI"])
+    db = client["myDatabase"]
+    collection = db["live-data"]
+except:
+    sys.exit(1)
 
 # Function to get the data from the api
 def getDataFeed(API_ENDPOINT):
