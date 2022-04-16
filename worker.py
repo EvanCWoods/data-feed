@@ -1,14 +1,13 @@
 import time
 import requests
 from pymongo import MongoClient
-from decouple import config
-
+import os
 
 # GLOBAL VARIABLES
 HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
-client = MongoClient(config("MONGO_URI"))
+client = MongoClient(os.environ["MONGO_URI"])
 db = client["myDatabase"]
 collection = db["live-data"]
 
