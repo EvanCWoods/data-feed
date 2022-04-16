@@ -12,8 +12,6 @@ API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 try:
     client = MongoClient(os.environ["MONGO_URI"], server_api=ServerApi('1'))
     print(client)
-    db = client.test
-    print(db)
 except:
     print("Error getting env variables")
     sys.exit(1)
@@ -25,25 +23,25 @@ def getDataFeed(API_ENDPOINT):
     return data["USD"]
 
 
-# Recursive function to get the current unix timestamp
-def getHours():
-    currentTime = int(time.time())  # Get the current time as an interger
-    if (currentTime % HOUR == 0):   # If the time is devisable by the number of seconds in an hour, it is a new hour
-        collection.insert_one(
-            {
-                "USD": getDataFeed(API_ENDPOINT),
-                "Timestamp": currentTime
-            }
-        )
-        time.sleep(1)
-        getHours()
-    else:   # If the current time is not a new hour, re run the function, adding a 1 second delay
-        time.sleep(1)
-        getHours()
+# # Recursive function to get the current unix timestamp
+# def getHours():
+#     currentTime = int(time.time())  # Get the current time as an interger
+#     if (currentTime % HOUR == 0):   # If the time is devisable by the number of seconds in an hour, it is a new hour
+#         collection.insert_one(
+#             {
+#                 "USD": getDataFeed(API_ENDPOINT),
+#                 "Timestamp": currentTime
+#             }
+#         )
+#         time.sleep(1)
+#         getHours()
+#     else:   # If the current time is not a new hour, re run the function, adding a 1 second delay
+#         time.sleep(1)
+#         getHours()
 
-def main():
-    getHours()
+# def main():
+#     getHours()
 
 
-if __name__=="__main__":
-    main()
+# if __name__=="__main__":
+#     main()
