@@ -13,6 +13,7 @@ try:
     db = client["myDatabase"]
     collection = db["live-data"]
 except:
+    print("Error getting env variables")
     sys.exit(1)
 
 # Function to get the data from the api
