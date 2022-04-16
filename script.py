@@ -5,7 +5,7 @@ from decouple import config
 
 
 # GLOBAL VARIABLES
-HOUR = 3600
+HOUR = 1
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
 client = MongoClient(config("MONGO_URI"))
@@ -22,8 +22,8 @@ def getDataFeed(API_ENDPOINT):
 # Recursive function to get the current unix timestamp
 def getHours():
     currentTime = int(time.time())  # Get the current time as an interger
-
     if (currentTime % HOUR == 0):   # If the time is devisable by the number of seconds in an hour, it is a new hour
+        print("GETTING DATA:", getDataFeed(API_ENDPOINT))
         collection.insert_one(
             {
                 "USD": getDataFeed(API_ENDPOINT),
@@ -34,6 +34,7 @@ def getHours():
         getHours()
     else:   # If the current time is not a new hour, re run the function, adding a 1 second delay
         time.sleep(1)
+        print(currentTime)
         getHours()
 
 def main():
