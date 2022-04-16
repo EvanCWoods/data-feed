@@ -2,6 +2,7 @@ import time
 import requests
 from pymongo import MongoClient
 import os
+import sys
 
 # GLOBAL VARIABLES
 HOUR = 3600
