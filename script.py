@@ -36,4 +36,9 @@ def getHours():
         time.sleep(1)
         getHours()
 
-getHours()
+def main():
+    getHours()
+
+
+if __name__=="__main__":
+    main()
