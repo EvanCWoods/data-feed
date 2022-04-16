@@ -3,18 +3,17 @@ import requests
 from pymongo import MongoClient
 import os
 import sys
+from pymongo.server_api import ServerApi
 
 # GLOBAL VARIABLES
 HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
 try:
-    client = MongoClient(os.environ["MONGO_URI"])
+    client = MongoClient(os.environ["MONGO_URI"], server_api=ServerApi('1'))
     print(client)
-    db = client["myDatabase"]
+    db = client.test
     print(db)
-    collection = db["live-data"]
-    print(collection)
 except:
     print("Error getting env variables")
     sys.exit(1)
