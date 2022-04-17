@@ -12,7 +12,9 @@ API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 try:
     value = str(os.environ["MONGO_URI"])
     cluster = MongoClient(value)
-    db = cluster["project-data"]
+    print(cluster)
+    db = cluster["test"]
+    print(db)
 except:
     print("Error getting env variables")
     sys.exit(1)
