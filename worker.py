@@ -10,8 +10,9 @@ HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
 try:
-    value = str(os.environ["MONGO_URI"])
-    cluster = MongoClient(value)
+    # value = str(os.environ["MONGO_URI"])
+    # print(value)
+    cluster = MongoClient("mongodb+srv://evan:evan12345@data-cluster.ql8we.mongodb.net/test?retryWrites=true&w=majority")
     print(cluster)
     db = cluster["test"]
     print(db)
