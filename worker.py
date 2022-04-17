@@ -10,7 +10,7 @@ HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
 try:
-    value = os.environ["MONGO_URI"]
+    value = str(os.environ["MONGO_URI"])
     print(value)
     cluster = MongoClient(value)
     print(cluster)
