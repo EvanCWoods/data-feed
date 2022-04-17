@@ -10,7 +10,8 @@ HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
 try:
-    value = os.environ.get("MONGO_URI")
+    value = os.environ
+    print(value)
     client = MongoClient(value, server_api=ServerApi('1'))
 except:
     print("Error getting env variables")
