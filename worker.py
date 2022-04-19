@@ -3,7 +3,7 @@ import requests
 from pymongo import MongoClient
 import ssl
 import sys
-import os
+
 # GLOBAL VARIABLES
 HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
@@ -43,6 +43,7 @@ def getHours():
 
 def main():
     getHours()
+    sys.exit(1)
 
 
 if __name__=="__main__":

@@ -1,4 +1,3 @@
 requests==2.25.1
 pymongo==4.1.0
 decouple==0.0.7
-sys
