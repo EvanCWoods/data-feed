@@ -4,9 +4,6 @@ asgiref==3.4.1
 astunparse==1.6.3
 attrs==21.2.0
 backcall==0.2.0
-backports.entry-points-selectable==1.1.0
-backtrader==1.9.76.123
-beautifulsoup4==4.9.3
 boto==2.49.0
 bs4==0.0.1
 cachetools==4.2.2
@@ -39,7 +36,6 @@ Markdown==3.3.4
 mysql-connector-python==8.0.28
 mysqlclient==2.1.0
 nest-asyncio==1.5.1
-numpy==1.19.5
 oauthlib==3.1.1
 opt-einsum==3.3.0
 packaging==21.0
