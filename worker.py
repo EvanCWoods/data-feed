@@ -5,7 +5,7 @@ import ssl
 import sys
 
 # GLOBAL VARIABLES
-HOUR = 10
+HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
 cluster = MongoClient("mongodb+srv://evan:evan123@cluster0.uq1vw.mongodb.net/test?retryWrites=true&w=majority",
