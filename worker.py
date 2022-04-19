@@ -6,7 +6,7 @@ import sys
 import os
 
 # GLOBAL VARIABLES
-HOUR = 10
+HOUR = 3600
 API_ENDPOINT = os.getenv('API_ENDPOINT')
 
 cluster = MongoClient(os.getenv("MONGO_URI"),
