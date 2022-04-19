@@ -20,7 +20,7 @@ def getDataFeed(API_ENDPOINT):
 
 # Recursive function to get the current unix timestamp
 def getHours():
-    cluster = MongoClient(os.environ["MONGO_URI"],
+    cluster = MongoClient("mongodb+srv://evan:evan123@cluster0.uq1vw.mongodb.net/test?retryWrites=true&w=majority",
     ssl_cert_reqs=ssl.CERT_NONE)
     print()
     print(cluster)
