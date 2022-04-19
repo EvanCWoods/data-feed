@@ -3,15 +3,16 @@ import requests
 from pymongo import MongoClient
 import ssl
 import sys
+import os
 
 # GLOBAL VARIABLES
-HOUR = 3600
+HOUR = 10
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
-cluster = MongoClient("mongodb+srv://evan:evan123@cluster0.uq1vw.mongodb.net/test?retryWrites=true&w=majority",
+cluster = MongoClient(os.getenv("MONGO_URI"),
 ssl_cert_reqs=ssl.CERT_NONE)
-db = cluster["test"]
-collection = db.test
+db = cluster["data"]
+collection = db.live
 
 # Function to get the data from the api
 def getDataFeed(API_ENDPOINT):
