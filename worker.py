@@ -22,6 +22,9 @@ def getDataFeed(API_ENDPOINT):
 def getHours():
     cluster = MongoClient(os.environ["MONGO_URI"],
     ssl_cert_reqs=ssl.CERT_NONE)
+    print()
+    print(cluster)
+    print()
     db = cluster["test"]
     collection = db.test
 
