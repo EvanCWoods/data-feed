@@ -7,7 +7,7 @@ import os
 
 # GLOBAL VARIABLES
 HOUR = 10
-API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
+API_ENDPOINT = os.getenv('API_ENDPOINT')
 
 cluster = MongoClient(os.getenv("MONGO_URI"),
 ssl_cert_reqs=ssl.CERT_NONE)
