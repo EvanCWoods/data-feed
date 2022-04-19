@@ -2,8 +2,7 @@ import time
 import requests
 from pymongo import MongoClient
 import ssl
-from decouple import config
-
+import os
 # GLOBAL VARIABLES
 HOUR = 1
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
@@ -20,13 +19,13 @@ def getDataFeed(API_ENDPOINT):
 
 # Recursive function to get the current unix timestamp
 def getHours():
-    cluster = MongoClient(config["MONGO_URI"],
+    cluster = MongoClient(os.environ["MONGO_URI"],
     ssl_cert_reqs=ssl.CERT_NONE)
     db = cluster["test"]
     collection = db.test
 
     currentTime = int(time.time())  # Get the current time as an interger
-    
+
     if (currentTime % HOUR == 0):   # If the time is devisable by the number of seconds in an hour, it is a new hour
         collection.insert_one({
             "timestamp": int(time.time()),
