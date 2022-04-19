@@ -2,9 +2,10 @@ import time
 import requests
 from pymongo import MongoClient
 import ssl
+import sys
 import os
 # GLOBAL VARIABLES
-HOUR = 1
+HOUR = 3600
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
     # value = str(os.environ["MONGO_URI"])
