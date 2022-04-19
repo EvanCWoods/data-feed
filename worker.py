@@ -5,11 +5,13 @@ import ssl
 import sys
 
 # GLOBAL VARIABLES
-HOUR = 3600
+HOUR = 10
 API_ENDPOINT="https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
 
-    # value = str(os.environ["MONGO_URI"])
-    # print(value)
+cluster = MongoClient("mongodb+srv://evan:evan123@cluster0.uq1vw.mongodb.net/test?retryWrites=true&w=majority",
+ssl_cert_reqs=ssl.CERT_NONE)
+db = cluster["test"]
+collection = db.test
 
 # Function to get the data from the api
 def getDataFeed(API_ENDPOINT):
@@ -20,13 +22,6 @@ def getDataFeed(API_ENDPOINT):
 
 # Recursive function to get the current unix timestamp
 def getHours():
-    cluster = MongoClient("mongodb+srv://evan:evan123@cluster0.uq1vw.mongodb.net/test?retryWrites=true&w=majority",
-    ssl_cert_reqs=ssl.CERT_NONE)
-    print()
-    print(cluster)
-    print()
-    db = cluster["test"]
-    collection = db.test
 
     currentTime = int(time.time())  # Get the current time as an interger
 
